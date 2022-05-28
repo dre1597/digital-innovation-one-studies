@@ -1,0 +1,10 @@
+:root {
+  --light-white: #ddd;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--light-white);
+  font-family: sans-serif;
+}
