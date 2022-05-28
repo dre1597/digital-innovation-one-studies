@@ -1,0 +1,23 @@
+$red: #e50914;
+$black: #141414;
+$grey: #aaa;
+
+@mixin for-phone {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
+@mixin for-desktop {
+  @media screen and(min-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    content: '';
+    clear: both;
+  }
+}

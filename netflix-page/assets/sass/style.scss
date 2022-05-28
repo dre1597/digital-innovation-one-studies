@@ -1,0 +1,11 @@
+@import 'reset', 'variables', 'header', 'main', 'movieCarrousel';
+
+body {
+  background: $black;
+  font-family: 'Arial', Times, serif;
+  color: white;
+}
+
+.container {
+  margin-left: 20px;
+}

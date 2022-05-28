@@ -1,0 +1,28 @@
+.header {
+  & .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include for-phone {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  &__logo {
+    color: $red;
+    font-family: 'Arial Black', Times;
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-left: 5px;
+  }
+  &__nav {
+    &--links {
+      text-decoration: none;
+      color: $grey;
+      margin-right: 10px;
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}
