@@ -1,0 +1,25 @@
+.not-account {
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 1.3rem 0;
+    border: 1px solid lightgray;
+    &:nth-child(1) {
+      min-height: 19rem;
+    }
+
+    @include for-phone {
+      border: 1px solid transparent;
+    }
+  }
+  &-p {
+    color: rgb(160, 160, 160);
+  }
+  &-link {
+    color: #0095f6;
+  }
+}
