@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333;
+}
+
+.container {
+  height: 95vh;
+  width: 95vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: rgb(52, 165, 52);
+}
+
+.container-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 50%;
+  height: 100%;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  background: rgba(68, 151, 68);
+  color: white;
+  font-size: 1.25rem;
+  margin: 5px;
+  width: 150px;
+}
+
+.theme {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 110px;
+}
+
+.container-canvas {
+  text-align: center;
+}
+
+.points {
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+#snake {
+  border: solid 10px rgb(52, 165, 52);
+}
+
+#game-over {
+  color: red;
+  font-size: 1.5rem;
+}
