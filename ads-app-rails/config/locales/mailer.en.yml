@@ -1,0 +1,4 @@
+en:
+    notification_mailer:
+        welcome:
+            subject: 'Welcome to Classificados'

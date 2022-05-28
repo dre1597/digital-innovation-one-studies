@@ -1,0 +1,11 @@
+<h1>Ads</h1>
+
+<div>
+    <ul>
+        <% @ads.each do |ad| %>
+            <p><strong><%= ad.title %></strong></p>
+            <p><%= ad.description %></p>
+            <p><%= ad.price %></p>
+        <% end %>
+    </ul>
+</div>
