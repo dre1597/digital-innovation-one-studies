@@ -1,0 +1,41 @@
+<mat-sidenav-container (backdropClick)="closeSideNav()" class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav" fixedInViewport="true">
+    <mat-toolbar color="primary">Menu</mat-toolbar>
+    <mat-nav-list (click)="closeSideNav()">
+      <a [routerLink]="['/movies/list']" mat-list-item>Home</a>
+      <mat-divider></mat-divider>
+      <a [routerLink]="['/movies/add']" mat-list-item>Add new movie</a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="header-toolbar" color="primary">
+      <button (click)="openSideNav()" aria-label="Toggle sidenav" mat-icon-button type="button">
+        <mat-icon aria-label="Side nav toggle icon"> menu</mat-icon>
+      </button>
+      <span>My list</span>
+      <button [matMenuTriggerFor]="menu" mat-icon-button>
+        <mat-icon>more_vert</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>account_circle</mat-icon>
+    <span>Account</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>settings</mat-icon>
+    <span>Settings</span>
+  </button>
+</mat-menu>
