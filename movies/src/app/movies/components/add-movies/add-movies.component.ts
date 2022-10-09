@@ -13,6 +13,10 @@ export class AddMoviesComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {
   }
 
+  get controls() {
+    return this.addMoviesForm.controls;
+  }
+
   ngOnInit(): void {
     this.addMoviesForm = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
@@ -26,6 +30,7 @@ export class AddMoviesComponent implements OnInit {
   }
 
   add(): void {
+    this.addMoviesForm.markAsTouched();
     if (this.addMoviesForm.invalid) {
       return;
     }
