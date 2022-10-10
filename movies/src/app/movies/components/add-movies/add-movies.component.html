@@ -1,40 +1,26 @@
 <mat-toolbar class="app-title">Add Movie</mat-toolbar>
 <div class="main-div">
   <mat-card class="center width50">
-    <form (ngSubmit)="add()" (reset)="resetForm()" [formGroup]="addMoviesForm">
+    <form (ngSubmit)="add()" (reset)="resetForm()" [formGroup]="addMoviesForm" autocomplete="off" novalidate>
       <mat-card-content>
-        <mat-form-field class="full-width">
-          <input formControlName="title" matInput name="title" placeholder="Title">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input formControlName="imageUrl" matInput name="imageUrl" placeholder="Image link">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input (click)="picker.open()" [matDatepicker]="picker" formControlName="releaseDate" matInput name="releaseDate"
-                 placeholder="Release date"
-                 readonly>
-          <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <textarea formControlName="description" matInput name="description" placeholder="Description"></textarea>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input formControlName="score" matInput max="10" min="0" name="score" placeholder="Score IMDb" step="1"
-                 type="number">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <input formControlName="IMDBurl" matInput name="IMDBurl" placeholder="Link IMDb">
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <mat-select formControlName="genre" placeholder="Genre">
-            <mat-option [value]="'Action'">Action</mat-option>
-            <mat-option [value]="'Adventure'">Adventure</mat-option>
-            <mat-option [value]="'Sci-fi'">Sci-fi</mat-option>
-            <mat-option [value]="'Romance'">Romance</mat-option>
-            <mat-option [value]="'Horror'">Horror</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <app-input-text [formGroup]="addMoviesForm" controlName="title" placeholder="Title"></app-input-text>
+        <app-input-text [formGroup]="addMoviesForm" controlName="imageUrl" placeholder="Image url"></app-input-text>
+        <app-input-date
+          [formGroup]="addMoviesForm"
+          controlName="releaseDate"
+          placeholder="Release Date"
+        >
+        </app-input-date>
+        <app-textarea [formGroup]="addMoviesForm" controlName="description" placeholder="Description"></app-textarea>
+        <app-input-number
+          [formGroup]="addMoviesForm"
+          [step]="0.1"
+          controlName="score"
+          placeholder="Score"
+        >
+        </app-input-number>
+        <app-input-text [formGroup]="addMoviesForm" controlName="IMDBurl" placeholder="IMDB url"></app-input-text>
+        <app-select [formGroup]="addMoviesForm" [options]="genres" controlName="genre" placeholder="genre"></app-select>
       </mat-card-content>
       <mat-card-actions>
         <button color="accent" mat-raised-button type="submit">Save</button>

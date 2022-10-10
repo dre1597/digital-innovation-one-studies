@@ -9,12 +9,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AddMoviesComponent implements OnInit {
 
   addMoviesForm: FormGroup;
+  genres: Array<string>;
 
   constructor(private formBuilder: FormBuilder) {
-  }
-
-  get controls() {
-    return this.addMoviesForm.controls;
   }
 
   ngOnInit(): void {
@@ -27,6 +24,9 @@ export class AddMoviesComponent implements OnInit {
       IMDBurl: ['', [Validators.minLength(10)]],
       genre: ['', Validators.required]
     });
+
+    this.genres = ['Action', 'Romance', 'Adventure', 'Horror', 'Sci-fi', 'Comedy', 'Drama'];
+
   }
 
   add(): void {

@@ -1,0 +1,21 @@
+<div [formGroup]="formGroup">
+  <mat-form-field class="full-width">
+    <input
+      [formControlName]="controlName"
+      [max]="maximum"
+      [min]="minimum"
+      [name]="controlName"
+      [placeholder]="placeholder"
+      [step]="step"
+      matInput
+      type="number"
+    >
+    <mat-error *ngIf="validation.validate(formControl, 'required')">Required field</mat-error>
+    <mat-error *ngIf="validation.validate(formControl, 'min')">
+      Minimum caracteres required are {{validation.validateLength(formControl, 'min')}} caracteres
+    </mat-error>
+    <mat-error *ngIf="validation.validate(formControl, 'max')">
+      Maximum caracteres required are {{validation.validateLength(formControl, 'max')}} caracteres
+    </mat-error>
+  </mat-form-field>
+</div>
