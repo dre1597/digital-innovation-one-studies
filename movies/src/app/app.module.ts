@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MoviesModule } from './movies/movies.module';
+import { AlertComponent } from './shared/components/alert/alert.component';
 import { FieldsModule } from './shared/components/fields/fields.module';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { HomeComponent } from './shared/components/home/home.component';
@@ -18,6 +19,7 @@ import { MaterialModule } from './shared/material/material.module';
     AppComponent,
     HomeComponent,
     FooterComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

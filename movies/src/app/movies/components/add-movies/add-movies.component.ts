@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { AlertComponent } from '../../../shared/components/alert/alert.component';
+import { Alert } from '../../../shared/models/alert';
 
 import { Movie } from '../../../shared/models/movie';
 import { MoviesService } from '../../movies.service';
@@ -14,7 +18,12 @@ export class AddMoviesComponent implements OnInit {
   addMoviesForm: FormGroup;
   genres: Array<string>;
 
-  constructor(private formBuilder: FormBuilder, private movieService: MoviesService) {
+  constructor(
+    public dialog: MatDialog,
+    private formBuilder: FormBuilder,
+    private movieService: MoviesService,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
@@ -41,8 +50,6 @@ export class AddMoviesComponent implements OnInit {
     const movie = this.addMoviesForm.getRawValue() as Movie;
 
     this.store(movie);
-
-    alert('Success!\n\n' + JSON.stringify(this.addMoviesForm.value, null, 2));
   }
 
   resetForm(): void {
@@ -51,8 +58,37 @@ export class AddMoviesComponent implements OnInit {
 
   private store(movie: Movie): void {
     this.movieService.store(movie).subscribe({
-      next: () => alert('success'),
-      error: () => alert('error')
+      next: (): void => {
+        const config = {
+          data: {
+            btnSucesso: 'Go to the list',
+            btnCancelar: 'Add a new movie',
+            corBtnCancelar: 'primary',
+            possuirBtnFechar: true
+          } as Alert
+        };
+
+        const dialogRef = this.dialog.open(AlertComponent, config);
+
+        dialogRef.afterClosed().subscribe((chooseToNavigate: boolean) => {
+          if (chooseToNavigate) {
+            this.router.navigateByUrl('movies');
+          } else {
+            this.resetForm();
+          }
+        });
+      },
+      error: (): void => {
+        const config = {
+          data: {
+            title: 'Error!',
+            description: 'Error',
+            successBtnColor: 'warn',
+            successBtnLabel: 'Close'
+          } as Alert
+        };
+        this.dialog.open(AlertComponent, config);
+      }
     });
   }
 
