@@ -1,7 +1,7 @@
 <mat-toolbar class="app-title">Add Movie</mat-toolbar>
 <div class="main-div">
   <mat-card class="center width50">
-    <form (ngSubmit)="add()" (reset)="resetForm()" [formGroup]="addMoviesForm" autocomplete="off" novalidate>
+    <form (ngSubmit)="submitForm()" (reset)="resetForm()" [formGroup]="addMoviesForm" autocomplete="off" novalidate>
       <mat-card-content>
         <app-input-text [formGroup]="addMoviesForm" controlName="title" placeholder="Title"></app-input-text>
         <app-input-text [formGroup]="addMoviesForm" controlName="imageUrl" placeholder="Image url"></app-input-text>

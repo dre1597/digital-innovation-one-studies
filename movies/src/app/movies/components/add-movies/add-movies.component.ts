@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { Movie } from '../../../shared/models/movie';
+import { MoviesService } from '../../movies.service';
+
 @Component({
   selector: 'app-add-movies',
   templateUrl: './add-movies.component.html',
@@ -11,7 +14,7 @@ export class AddMoviesComponent implements OnInit {
   addMoviesForm: FormGroup;
   genres: Array<string>;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private movieService: MoviesService) {
   }
 
   ngOnInit(): void {
@@ -29,17 +32,28 @@ export class AddMoviesComponent implements OnInit {
 
   }
 
-  add(): void {
+  submitForm(): void {
     this.addMoviesForm.markAsTouched();
     if (this.addMoviesForm.invalid) {
       return;
     }
+
+    const movie = this.addMoviesForm.getRawValue() as Movie;
+
+    this.store(movie);
 
     alert('Success!\n\n' + JSON.stringify(this.addMoviesForm.value, null, 2));
   }
 
   resetForm(): void {
     this.addMoviesForm.reset();
+  }
+
+  private store(movie: Movie): void {
+    this.movieService.store(movie).subscribe({
+      next: () => alert('success'),
+      error: () => alert('error')
+    });
   }
 
 }
