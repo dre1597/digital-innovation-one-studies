@@ -1,0 +1,30 @@
+GET http://localhost:8080/customers
+
+
+###
+
+GET http://localhost:8080/customers/1
+
+###
+
+POST http://localhost:8080/customers
+Content-Type: application/json
+
+{
+  "name": "John",
+  "cep": "78008973"
+}
+
+###
+
+PUT http://localhost:8080/customers/1
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "cep": "78008973"
+}
+
+###
+
+DELETE http://localhost:8080/customers/1

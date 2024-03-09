@@ -1,17 +1,16 @@
 package org.example.designpatternsspring.service;
 
+import org.example.designpatternsspring.dto.CreateCustomerDTO;
 import org.example.designpatternsspring.model.Customer;
 
-import java.util.List;
-
 public interface CustomerService {
-  List<Customer> getAll();
+  Iterable<Customer> getAll();
 
   Customer getById(Long id);
 
-  Customer create(Customer customer);
+  void create(CreateCustomerDTO customer);
 
-  Customer update(Long id, Customer customer);
+  void update(Long id, CreateCustomerDTO customer);
 
   void delete(Long id);
 }

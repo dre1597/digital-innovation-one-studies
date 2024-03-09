@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import org.example.designpatternsspring.dto.ViaCepRO;
 
 @Entity
 public class Address {
@@ -17,6 +18,19 @@ public class Address {
   private String neighborhood;
   private String city;
   private String state;
+
+  public static Address fromViaCepRO(final ViaCepRO viaCepRO) {
+    final var address = new Address();
+
+    address.setCep(viaCepRO.cep());
+    address.setStreet(viaCepRO.logradouro());
+    address.setComplement(viaCepRO.complemento());
+    address.setNeighborhood(viaCepRO.bairro());
+    address.setCity(viaCepRO.localidade());
+    address.setState(viaCepRO.uf());
+
+    return address;
+  }
 
   public Long getId() {
     return id;
