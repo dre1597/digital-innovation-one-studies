@@ -1,4 +1,4 @@
-package org.example.digitalgym.entity.table;
+package org.example.digitalgym.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
