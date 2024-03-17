@@ -1,0 +1,47 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --white: #fff;
+  --normal: #a6a877;
+  --fire: #ee7f30;
+  --water: #678fee;
+  --electric: #f7cf2e;
+  --grass: #77c850;
+  --ice: #96d9d6;
+  --fighting: #d56723;
+  --poison: #a33ea1;
+  --ground: #e2bf65;
+  --flying: #a98ff0;
+  --psychic: #f65687;
+  --bug: #a6b91a;
+  --rock: #b6a136;
+  --ghost: #735797;
+  --dragon: #6f38f6;
+  --dark: #705746;
+  --steel: #b7b7ce;
+  --fairy: #d685ad;
+  --button: #6c79db;
+}
+
+body {
+  background-color: #f6f8fc;
+}
+
+.content {
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  background-color: var(--white);
+}
+
+@media screen and (min-width: 992px) {
+  .content {
+    max-width: 992px;
+    height: auto;
+    margin: 1rem auto;
+    border-radius: 1rem;
+  }
+}
