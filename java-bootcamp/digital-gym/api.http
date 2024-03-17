@@ -1,0 +1,88 @@
+### find all students
+GET http://localhost:8080/students
+
+### find all students with birthdate
+GET http://localhost:8080/students?birthdate=2000-01-01
+
+### find student
+GET http://localhost:8080/students/1
+
+### create student
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "cpf": "11111111111",
+  "neighborhood": "test",
+  "birthdate": "2000-01-01"
+}
+
+### update student
+PUT http://localhost:8080/students/1
+Content-Type: application/json
+
+{
+  "name": "John Updated Doe",
+  "cpf": "11111111122",
+  "neighborhood": "updated test",
+  "birthdate": "2000-01-02"
+}
+
+### delete student
+DELETE http://localhost:8080/students/1
+
+## get physical assessments by student id
+
+GET http://localhost:8080/physical-assessments/1
+
+### get all physical assessments
+
+GET http://localhost:8080/physical-assessments
+
+### get physical assessment
+GET http://localhost:8080/physical-assessments/1
+
+### create physical assessment
+POST http://localhost:8080/physical-assessments
+Content-Type: application/json
+
+{
+  "studentId": 1,
+  "weight": 80,
+  "height": 180
+}
+
+### update physical assessment
+PUT http://localhost:8080/physical-assessments/1
+Content-Type: application/json
+
+{
+  "weight": 90,
+  "height": 190
+}
+
+### delete physical assessment
+DELETE http://localhost:8080/physical-assessments/1
+
+### get all registrations
+
+GET http://localhost:8080/registrations
+
+### get registrations by neighborhood
+
+GET http://localhost:8080/registrations?neighborhood=test
+
+### get registration
+GET http://localhost:8080/registrations/1
+
+### create registration
+POST http://localhost:8080/registrations
+Content-Type: application/json
+
+{
+  "studentId": 1
+}
+
+### delete registration
+DELETE http://localhost:8080/registrations/1

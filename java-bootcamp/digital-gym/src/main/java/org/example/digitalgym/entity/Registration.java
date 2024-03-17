@@ -1,18 +1,12 @@
 package org.example.digitalgym.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 public class Registration {
   @Id
@@ -24,6 +18,48 @@ public class Registration {
   @OneToOne
   @JoinColumn(name = "student_id")
   private Student student;
+
+  public Registration() {
+  }
+
+  public Registration(final Long id, final LocalDateTime registrationDate, final Student student) {
+    this.id = id;
+    this.registrationDate = registrationDate;
+    this.student = student;
+  }
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(final Long id) {
+    this.id = id;
+  }
+
+  public LocalDateTime getRegistrationDate() {
+    return registrationDate;
+  }
+
+  public void setRegistrationDate(final LocalDateTime registrationDate) {
+    this.registrationDate = registrationDate;
+  }
+
+  public Student getStudent() {
+    return student;
+  }
+
+  public void setStudent(final Student student) {
+    this.student = student;
+  }
+
+  @Override
+  public String toString() {
+    return "Registration{" +
+        "id=" + id +
+        ", registrationDate=" + registrationDate +
+        ", student=" + student +
+        '}';
+  }
 
   @Override
   public final boolean equals(final Object o) {

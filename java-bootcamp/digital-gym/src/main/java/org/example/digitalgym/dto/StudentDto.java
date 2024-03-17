@@ -4,8 +4,10 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Size;
+import org.example.digitalgym.entity.Student;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public record StudentDto(
     @NotEmpty
@@ -22,6 +24,18 @@ public record StudentDto(
 
     @NotNull
     @Past
-    LocalDate birthDate
+    LocalDate birthdate
 ) {
+  public static StudentDto fromEntity(final Student entity) {
+    return new StudentDto(
+        entity.getName(),
+        entity.getCpf(),
+        entity.getNeighborhood(),
+        entity.getBirthdate()
+    );
+  }
+
+  public static List<StudentDto> fromListEntity(final List<Student> entities) {
+    return entities.stream().map(StudentDto::fromEntity).toList();
+  }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PhysicalAssessmentService {
 
-  List<PhysicalAssessment> getAll(final Long id);
+  List<PhysicalAssessment> getAll();
 
   PhysicalAssessment getOne(final Long id);
 

@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface RegistrationRepository extends JpaRepository<Registration, Long> {
 
-  @Query(value = "SELECT * FROM registration r INNER JOIN student s ON r.student_id = s.id WHERE s.neighborhood = :neighborhood", nativeQuery = true)
-  List<Registration> findStudentsRegisteredPerNeighborhood(String neighborhood);
+  @Query(value = "SELECT r.* FROM registration r INNER JOIN student s ON r.student_id = s.id WHERE s.neighborhood = :neighborhood", nativeQuery = true)
+  List<Registration> findStudentsRegisteredPerNeighborhood(final String neighborhood);
 }
