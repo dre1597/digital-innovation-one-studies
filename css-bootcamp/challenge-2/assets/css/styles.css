@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+h2 {
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+h3, p {
+  font-size: 14px;
+}
+
+p {
+  color: #515151;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background: #FFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 24px;
+
+  .logo-menu, .search {
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo-menu {
+    img {
+      margin-left: 32px;
+    }
+  }
+
+  .search {
+    input {
+      width: 348px;
+      height: 40px;
+      border: 1px solid #CCC;
+    }
+
+    button {
+      width: 57px;
+      height: 40px;
+    }
+  }
+
+  .notification {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+
+    img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+    }
+  }
+}
+
+main {
+  background: #F9F9F9;
+  width: 100%;
+  padding-top: 28px;
+  display: flex;
+
+  .video {
+    margin-left: 75px;
+
+    .video-player-title {
+      padding: 16px 0;
+    }
+
+    .channel-infos {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 42px;
+
+      .channel {
+        display: flex;
+        flex-direction: row;
+
+        .channel-details {
+          margin-left: 12px;
+
+          h3 {
+            font-weight: 700;
+          }
+        }
+      }
+
+      .subscribe-channel button {
+        width: 159px;
+        height: 40px;
+        border: transparent;
+        border-radius: 2px;
+        background: #C00;
+
+        color: #FFF;
+        font-size: 14px;
+        text-transform: uppercase;
+      }
+
+      .like {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+      }
+
+      .dislike {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .share {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .download {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .like p, .dislike p, .share p, .download p {
+        margin-left: 8px;
+        font-weight: 700;
+      }
+    }
+
+    .views {
+      width: 391px;
+      height: 16px;
+      padding: 16px 0;
+
+      p {
+        color: #000;
+        font-weight: 700;
+      }
+
+      span {
+        color: #AAAAAA;
+        font-weight: 700;
+      }
+    }
+
+    .details {
+      padding-top: 16px;
+      width: 1200px;
+
+      p {
+        color: #515151;
+        font-weight: 400;
+      }
+    }
+  }
+
+  .playlist-video {
+    margin-left: 25px;
+
+    .thumbnail {
+      display: flex;
+      margin-bottom: 16px;
+    }
+
+    .thumbnail-infos {
+      width: 196px;
+      max-height: 90px;
+      margin-left: 16px;
+    }
+
+    .thumbnail-channel, .thumbnail-views {
+      padding-top: 7px;
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+}
