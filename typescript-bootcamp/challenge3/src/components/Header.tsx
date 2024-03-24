@@ -1,6 +1,7 @@
 import { Box, Button, Center, Flex, Spacer, Text } from '@chakra-ui/react';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import { changeLocalStorage } from '../services/storage';
 import { AppContext } from './AppContext';
 

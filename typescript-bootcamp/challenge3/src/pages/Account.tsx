@@ -1,6 +1,7 @@
 import { Center, SimpleGrid, Spinner } from '@chakra-ui/react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
+
 import { api } from '../api';
 import CardInfo from '../components/CardInfo.tsx';
 import { AppContext } from '../components/AppContext';
