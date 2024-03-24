@@ -23,6 +23,12 @@ export class UserController {
     return response.status(200).json(users);
   };
 
+  deleteUser = (request: Request, response: Response) => {
+    const email = request.body.email;
+    this.userService.deleteUser(email);
+    return response.status(200).json({ message: 'User deleted' });
+  };
+
   constructor(
     userService = new UserService()
   ) {

@@ -7,7 +7,8 @@ import { makeMockResponse } from '../__mocks__/mock-response.mock';
 describe('UserController', () => {
   const mockUserService: Partial<UserService> = {
     createUser: jest.fn(),
-    getAllUsers: jest.fn()
+    getAllUsers: jest.fn(),
+    deleteUser: jest.fn(),
   };
 
   const userController = new UserController(mockUserService as UserService);
@@ -57,5 +58,28 @@ describe('UserController', () => {
     const spy = jest.spyOn(mockUserService, 'getAllUsers').mockReturnValue(mockUserService.getAllUsers!());
     expect(mockResponse.state.status).toBe(200);
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('should delete a user', () => {
+    const mockRequest = {
+      body: {
+        email: 'any_email@email.com'
+      }
+    } as Request;
+    const mockResponse = makeMockResponse();
+    userController.deleteUser(mockRequest, mockResponse);
+    expect(mockResponse.state.status).toBe(200);
+    expect(mockResponse.state.json).toMatchObject({ message: 'User deleted' });
+  });
+
+  it('should not delete a user if the user does not exist', () => {
+    const mockRequest = {
+      body: {
+        email: 'invalid_email@email.com'
+      }
+    } as Request;
+    const mockResponse = makeMockResponse();
+    userController.deleteUser(mockRequest, mockResponse);
+    expect(mockResponse.state.status).toBe(200);
   });
 });

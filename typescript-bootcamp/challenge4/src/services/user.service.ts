@@ -33,6 +33,14 @@ export class UserService {
     return this.db;
   };
 
+  getUserByEmail = (email: string) => {
+    return this.db.find((u) => u.email === email);
+  };
+
+  deleteUser = (email: string) => {
+    this.db = this.db.filter((u) => u.email !== email);
+  };
+
   constructor(
     database = db
   ) {
