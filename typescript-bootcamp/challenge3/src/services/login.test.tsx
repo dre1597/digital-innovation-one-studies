@@ -1,12 +1,15 @@
-import { login } from './login.tsx';
+import { login } from './login';
 
 describe('login', () => {
-  const mockAlert = jest.fn();
 
-  window.alert = mockAlert;
+  const mockEmail = 'any_email@email.com';
+  it('should open an alert with welcome message if email is valid', async () => {
+    const response = await login(mockEmail);
+    expect(response).toBeTruthy();
+  });
 
-  it('should call alert', () => {
-    login();
-    expect(mockAlert).toHaveBeenCalledWith('Welcome');
+  it('should throw an error if email is invalid', async () => {
+    const response = await login('invalid_email@email.com');
+    expect(response).toBeFalsy();
   });
 });
