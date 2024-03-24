@@ -1,7 +1,7 @@
 import { DioAccount } from './DioAccount';
 
 export class PeopleAccount extends DioAccount {
-  public docId: number
+  private docId: number
 
   constructor(docId: number, name: string, accountNumber: number) {
     super(name, accountNumber);
