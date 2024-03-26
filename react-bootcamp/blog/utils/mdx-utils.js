@@ -1,7 +1,7 @@
 import { api } from '../services/api';
 
 export const getPosts = async () => {
-  const { data } = await api.from('posts').select('*');
+  const { data } = await api.get('/posts');
 
   if (data) {
     return data;
@@ -11,5 +11,11 @@ export const getPosts = async () => {
 };
 
 export const getPostBySlug = async (id) => {
-  return api.from('posts').select('*').eq('id', id);
+  const { data } = await api.get(`/posts/${id}`);
+
+  if (data) {
+    return data;
+  }
+
+  return null;
 };
