@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: demo-spring-kotlin
+  datasource:
+      url: jdbc:h2:mem:creditdb
+      username: sa
+      password: sa
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: false
