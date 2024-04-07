@@ -5,6 +5,11 @@ spring:
       url: jdbc:h2:mem:creditdb
       username: sa
       password: sa
+  jpa:
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
   h2:
     console:
       enabled: true
