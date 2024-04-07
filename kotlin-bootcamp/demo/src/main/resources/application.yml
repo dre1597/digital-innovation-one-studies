@@ -12,6 +12,3 @@ spring:
       settings:
         trace: false
         web-allow-others: false
-  jpa:
-    hibernate:
-      ddl-auto: create-drop
