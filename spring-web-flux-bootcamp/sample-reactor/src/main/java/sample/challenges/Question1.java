@@ -8,8 +8,8 @@ public class Question1 {
 
   public static void main(String[] args) {
 
-    Question1 q = new Question1();
-    Flux<Long> flux = q.inc(List.of(1L, 2L, 3L, 4L, 5L));
+    var q = new Question1();
+    var flux = q.inc(List.of(1L, 2L, 3L, 4L, 5L));
     flux.subscribe(
         v -> System.out.println("Value ===> " + v),
         e -> System.err.println("Error ===> " + e),
