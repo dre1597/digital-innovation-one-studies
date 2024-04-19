@@ -7,7 +7,7 @@ plugins {
 group = 'org.example'
 version = '0.0.1'
 
-java{
+java {
   sourceCompatibility = JavaVersion.VERSION_17
   targetCompatibility = JavaVersion.VERSION_17
 }
@@ -22,8 +22,8 @@ repositories {
   mavenCentral()
 }
 
-ext{
-  mapstructVersion = '1.5.0.Final'
+ext {
+  mapstructVersion = '1.5.1.Final'
 }
 
 dependencies {
@@ -31,7 +31,7 @@ dependencies {
   implementation 'org.springframework.boot:spring-boot-starter-mail'
   implementation 'org.springframework.boot:spring-boot-starter-validation'
   implementation 'org.springframework.boot:spring-boot-starter-webflux'
-  implementation "org.mapstruct:mapstruct:$mapstructVersion"
+  implementation "org.mapstruct:mapstruct-processor:$mapstructVersion"
   implementation 'org.apache.commons:commons-lang3:3.12.0'
   implementation 'commons-collections:commons-collections:3.2.2'
 
@@ -50,6 +50,6 @@ tasks.named('test') {
   useJUnitPlatform()
 }
 
-jar{
+jar {
   enabled = false
 }
