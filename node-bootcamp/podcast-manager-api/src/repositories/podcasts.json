@@ -1,0 +1,38 @@
+[
+  {
+    "name": "podcast 1",
+    "episode": "episode 1",
+    "videoId": "pQSuQmUfS30",
+    "categories": [
+      "saúde",
+      "esporte",
+      "bodybuilder"
+    ]
+  },
+  {
+    "name": "podcast 1",
+    "episode": "episode 2",
+    "videoId": "4KDGTdiOV4I",
+    "categories": [
+      "esporte",
+      "corrida"
+    ]
+  },
+  {
+    "name": "podcast 1",
+    "episode": "episode 3",
+    "videoId": "dW7f8QVnLqY",
+    "categories": [
+      "esporte",
+      "programação"
+    ]
+  },
+  {
+    "name": "podcast 2",
+    "episode": "episode 2",
+    "videoId": "_5B5wS5HJ6A",
+    "categories": [
+      "humor"
+    ]
+  }
+]
