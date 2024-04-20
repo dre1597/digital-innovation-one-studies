@@ -1,4 +1,4 @@
-package org.example.reactiveflashcards.api.request;
+package org.example.reactiveflashcards.api.controller.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;

@@ -1,7 +1,7 @@
 package org.example.reactiveflashcards.api.mapper;
 
-import org.example.reactiveflashcards.api.request.UserRequest;
-import org.example.reactiveflashcards.api.response.UserResponse;
+import org.example.reactiveflashcards.api.controller.request.UserRequest;
+import org.example.reactiveflashcards.api.controller.response.UserResponse;
 import org.example.reactiveflashcards.domain.document.UserDocument;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
