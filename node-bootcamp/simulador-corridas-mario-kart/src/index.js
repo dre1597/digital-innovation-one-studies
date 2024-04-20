@@ -1,18 +1,98 @@
-const player1 = {
-  NOME: 'Mario',
-  VELOCIDADE: 4,
-  MANOBRABILIDADE: 3,
-  PODER: 3,
-  PONTOS: 0,
-};
+const readline = require('readline');
 
-const player2 = {
-  NOME: 'Luigi',
-  VELOCIDADE: 3,
-  MANOBRABILIDADE: 4,
-  PODER: 4,
-  PONTOS: 0,
-};
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+const personagens = [
+  {
+    NOME: 'Mario',
+    VELOCIDADE: 4,
+    MANOBRABILIDADE: 3,
+    PODER: 3,
+  },
+  {
+    NOME: 'Luigi',
+    VELOCIDADE: 3,
+    MANOBRABILIDADE: 4,
+    PODER: 4,
+  },
+  {
+    NOME: 'Peach',
+    VELOCIDADE: 3,
+    MANOBRABILIDADE: 4,
+    PODER: 2,
+  },
+  {
+    NOME: 'Yoshi',
+    VELOCIDADE: 2,
+    MANOBRABILIDADE: 4,
+    PODER: 3
+  },
+  {
+    NOME: 'Bowser',
+    VELOCIDADE: 5,
+    MANOBRABILIDADE: 2,
+    PODER: 5
+  },
+  {
+    NOME: 'Donkey Kong',
+    VELOCIDADE: 2,
+    MANOBRABILIDADE: 2,
+    PODER: 5
+  }
+];
+
+function showMenu() {
+  const options = personagens.map((personagem, index) => {
+    return `${index + 1} - ${personagem.NOME} : ${personagem.VELOCIDADE} velocidade, ${personagem.MANOBRABILIDADE} manobrabilidade, ${personagem.PODER} poder`;
+  });
+
+  console.log('Selecione um personagem:');
+  console.log(options.join('\n'));
+}
+
+function promptCharacterAndStartGame() {
+  rl.question('Selecione um personagem: ', async answer => {
+
+    const index = parseFloat(answer);
+
+    if (isNaN(index)) {
+      console.log('Por favor, digite um valor numérico');
+      return promptCharacterAndStartGame();
+    }
+
+    if (index < 1 || index > 6) {
+      console.log('Por favor, digite um valor entre 1 e 6');
+      return promptCharacterAndStartGame();
+    }
+
+    const playerOne = personagens[answer - 1];
+    console.log(`O personagem selecionado foi: ${playerOne.NOME}`);
+
+    const playerTwo = selectRandomPlayerTwo();
+    console.log(`O segundo personagem selecionado foi: ${playerTwo.NOME}`);
+
+
+    console.log(
+      `🏁🚨 Corrida entre ${playerOne.NOME} e ${playerTwo.NOME} começando...\n`
+    );
+
+    playerOne.PONTOS = 0;
+    playerTwo.PONTOS = 0;
+
+    await playRaceEngine(playerOne, playerTwo);
+    await declareWinner(playerOne, playerTwo);
+
+    rl.close();
+  });
+}
+
+function selectRandomPlayerTwo() {
+  const index = Math.floor(Math.random() * 6);
+  return personagens[index];
+}
 
 async function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
@@ -184,10 +264,7 @@ async function declareWinner(firstCharacter, secondCharacter) {
 }
 
 (async function main() {
-  console.log(
-    `🏁🚨 Corrida entre ${player1.NOME} e ${player2.NOME} começando...\n`
-  );
+  showMenu();
 
-  await playRaceEngine(player1, player2);
-  await declareWinner(player1, player2);
+  promptCharacterAndStartGame();
 })();
