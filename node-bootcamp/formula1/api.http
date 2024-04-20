@@ -1,0 +1,9 @@
+http://localhost:3000/teams
+
+###
+
+GET http://localhost:3000/drivers
+
+###
+
+GET http://localhost:3000/drivers/1
