@@ -93,6 +93,8 @@ async function playRaceEngine(firstCharacter, secondCharacter) {
     if (block === 'CONFRONTO') {
       let firstPowerResult = firstDiceResult + firstCharacter.PODER;
       let secondPowerResult = secondDiceResult + secondCharacter.PODER;
+      const randomBonus = Math.random();
+      const randomDano = Math.random();
 
       console.log(`${firstCharacter.NOME} confrontou com ${secondCharacter.NOME}! 🥊`);
 
@@ -111,17 +113,41 @@ async function playRaceEngine(firstCharacter, secondCharacter) {
       );
 
       if (firstPowerResult > secondPowerResult && secondCharacter.PONTOS > 0) {
-        console.log(
-          `${firstCharacter.NOME} venceu o confronto! ${secondCharacter.NOME} perdeu 1 ponto 🐢`
-        );
-        secondCharacter.PONTOS--;
+        if (randomDano > 0.5) {
+          console.log(
+            `${firstCharacter.NOME} venceu o confronto! ${secondCharacter.NOME} perdeu 2 pontos 💣`
+          );
+          secondCharacter.PONTOS -= 2;
+        } else {
+          console.log(
+            `${firstCharacter.NOME} venceu o confronto! ${secondCharacter.NOME} perdeu 1 ponto 🐢`
+          );
+          secondCharacter.PONTOS--;
+        }
+
+        if (randomBonus > 0.5) {
+          firstCharacter.PONTOS++;
+          console.log(`Turbo! ${firstCharacter.NOME} ganhou um ponto!`);
+        }
       }
 
       if (secondPowerResult > firstPowerResult && firstCharacter.PONTOS > 0) {
-        console.log(
-          `${secondCharacter.NOME} venceu o confronto! ${firstCharacter.NOME} perdeu 1 ponto 🐢`
-        );
-        firstCharacter.PONTOS--;
+        if (randomDano > 0.5) {
+          console.log(
+            `${secondCharacter.NOME} venceu o confronto! ${firstCharacter.NOME} perdeu 2 pontos 💣`
+          );
+          firstCharacter.PONTOS -= 2;
+        } else {
+          console.log(
+            `${secondCharacter.NOME} venceu o confronto! ${firstCharacter.NOME} perdeu 1 ponto 🐢`
+          );
+          firstCharacter.PONTOS--;
+        }
+
+        if (randomBonus > 0.5) {
+          secondCharacter.PONTOS++;
+          console.log(`Turbo! ${secondCharacter.NOME} ganhou um ponto!`);
+        }
       }
 
       console.log(
