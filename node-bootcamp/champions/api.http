@@ -1,0 +1,56 @@
+GET http://localhost:3000/api/clubs
+
+###
+GET http://localhost:3000/api/players
+
+
+###
+GET http://localhost:3000/api/players/20
+
+###
+
+POST http://localhost:3000/api/players
+Content-Type: application/json
+
+{
+  "id": 20,
+  "name": "Bruno Fernandes",
+  "club": "Manchester United",
+  "nationality": "Portugal",
+  "position": "Midfielder",
+  "statistics": {
+    "overall": 84,
+    "pace": 82,
+    "shooting": 86,
+    "passing": 85,
+    "dribbling": 84,
+    "defending": 78,
+    "physical": 82
+  }
+}
+
+###
+
+PATCH http://localhost:3000/api/players/20
+Content-Type: application/json
+
+{
+  "id": 20,
+  "name": "Bruno Fernandes",
+  "club": "Manchester United",
+  "nationality": "Portugal",
+  "position": "Midfielder",
+  "statistics": {
+    "overall": 84,
+    "pace": 82,
+    "shooting": 86,
+    "passing": 85,
+    "dribbling": 84,
+    "defending": 78,
+    "physical": 80
+  }
+}
+
+###
+
+DELETE http://localhost:3000/api/players/20
