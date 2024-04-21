@@ -1,0 +1,9 @@
+spring:
+  mongodb:
+    embedded:
+      version: 5.0.6
+  data:
+    mongodb:
+      port: 27017
+      host: localhost
+      database: reactive-flashcards

@@ -26,7 +26,7 @@ public class ApiExceptionHandler implements WebExceptionHandler {
 
   private final DeckInStudyHandler deckInStudyHandler;
   private final EmailAlreadyUsedHandler emailAlreadyUsedHandler;
-  private final MethodNotAllowHandler methodNotAllowHandler;
+  private final MethodNotAllowedHandler methodNotAllowedHandler;
   private final NotFoundHandler notFoundHandler;
   private final ConstraintViolationHandler constraintViolationHandler;
   private final WebExchangeBindHandler webExchangeBindHandler;
@@ -40,7 +40,7 @@ public class ApiExceptionHandler implements WebExceptionHandler {
     return Mono.error(ex)
         .onErrorResume(DeckInStudyException.class, e -> deckInStudyHandler.handlerException(exchange, e))
         .onErrorResume(EmailAlreadyUsedException.class, e -> emailAlreadyUsedHandler.handlerException(exchange, e))
-        .onErrorResume(MethodNotAllowedException.class, e -> methodNotAllowHandler.handlerException(exchange, e))
+        .onErrorResume(MethodNotAllowedException.class, e -> methodNotAllowedHandler.handlerException(exchange, e))
         .onErrorResume(NotFoundException.class, e -> notFoundHandler.handlerException(exchange, e))
         .onErrorResume(ConstraintViolationException.class, e -> constraintViolationHandler.handlerException(exchange, e))
         .onErrorResume(WebExchangeBindException.class, e -> webExchangeBindHandler.handlerException(exchange, e))
