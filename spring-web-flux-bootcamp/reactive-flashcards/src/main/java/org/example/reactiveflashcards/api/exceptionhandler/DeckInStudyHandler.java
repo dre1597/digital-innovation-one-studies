@@ -2,26 +2,26 @@ package org.example.reactiveflashcards.api.exceptionhandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.example.reactiveflashcards.domain.exception.NotFoundException;
+import org.example.reactiveflashcards.domain.exception.DeckInStudyException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.HttpStatus.CONFLICT;
 
-@Slf4j
 @Component
-public class NotFoundHandler extends AbstractHandleException<NotFoundException> {
-  public NotFoundHandler(final ObjectMapper mapper) {
+@Slf4j
+public class DeckInStudyHandler extends AbstractHandleException<DeckInStudyException> {
+  public DeckInStudyHandler(final ObjectMapper mapper) {
     super(mapper);
   }
 
   @Override
-  public Mono<Void> handlerException(final ServerWebExchange exchange, final NotFoundException ex) {
+  Mono<Void> handlerException(final ServerWebExchange exchange, final DeckInStudyException ex) {
     return Mono.fromCallable(() -> {
-          prepareExchange(exchange, NOT_FOUND);
+          prepareExchange(exchange, CONFLICT);
           return ex.getMessage();
-        }).map(message -> buildError(NOT_FOUND, message))
+        }).map(message -> buildError(CONFLICT, message))
         .doFirst(() -> log.error("==== NotFoundException", ex))
         .flatMap(response -> writeResponse(exchange, response));
   }

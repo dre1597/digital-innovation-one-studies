@@ -1,7 +1,7 @@
 package org.example.reactiveflashcards.domain.service;
 
 import org.example.reactiveflashcards.domain.dto.MailMessageDTO;
-import org.example.reactiveflashcards.domain.healper.RetryHelper;
+import org.example.reactiveflashcards.domain.helper.RetryHelper;
 import org.example.reactiveflashcards.domain.mapper.MailMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
@@ -20,19 +20,18 @@ import java.util.UUID;
 
 @Service
 public class MailService {
+
   private final RetryHelper retryHelper;
   private final JavaMailSender mailSender;
   private final TemplateEngine templateEngine;
   private final MailMapper mailMapper;
   private final String sender;
 
-  public MailService(
-      final RetryHelper retryHelper,
-      final JavaMailSender mailSender,
-      final TemplateEngine templateEngine,
-      final MailMapper mailMapper,
-      @Value("${reactive-flashcards.mail.sender}") final String sender
-  ) {
+  public MailService(final RetryHelper retryHelper,
+                     final JavaMailSender mailSender,
+                     final TemplateEngine templateEngine,
+                     final MailMapper mailMapper,
+                     @Value("${reactive-flashcards.mail.sender}") final String sender) {
     this.retryHelper = retryHelper;
     this.mailSender = mailSender;
     this.templateEngine = templateEngine;
@@ -69,4 +68,5 @@ public class MailService {
         }).retryWhen(retryHelper.processRetry(UUID.randomUUID().toString(), MailException.class::isInstance))
         .then();
   }
+
 }

@@ -1,4 +1,4 @@
-package org.example.reactiveflashcards.domain.healper;
+package org.example.reactiveflashcards.domain.helper;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

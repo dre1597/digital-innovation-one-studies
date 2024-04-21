@@ -2,6 +2,7 @@ package org.example.reactiveflashcards.api.exceptionhandler;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
@@ -9,13 +10,14 @@ import static org.example.reactiveflashcards.domain.exception.BaseErrorMessage.G
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 
 @Slf4j
+@Component
 public class GenericHandler extends AbstractHandleException<Exception> {
   public GenericHandler(final ObjectMapper mapper) {
     super(mapper);
   }
 
   @Override
-  Mono<Void> handlerException(final ServerWebExchange exchange, final Exception ex) {
+  public Mono<Void> handlerException(final ServerWebExchange exchange, final Exception ex) {
     return Mono.fromCallable(() -> {
           prepareExchange(exchange, INTERNAL_SERVER_ERROR);
           return GENERIC_EXCEPTION.getMessage();

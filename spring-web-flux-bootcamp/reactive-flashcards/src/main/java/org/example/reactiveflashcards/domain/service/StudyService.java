@@ -33,6 +33,7 @@ import static org.example.reactiveflashcards.domain.exception.BaseErrorMessage.S
 @Slf4j
 @AllArgsConstructor
 public class StudyService {
+
   private final MailService mailService;
   private final UserQueryService userQueryService;
   private final DeckQueryService deckQueryService;
@@ -136,4 +137,5 @@ public class StudyService {
         .flatMap(mailService::send)
         .subscribe();
   }
+
 }

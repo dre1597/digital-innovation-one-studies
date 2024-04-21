@@ -14,6 +14,7 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @AllArgsConstructor
 public class DeckService {
+
   private final DeckRepository deckRepository;
   private final DeckQueryService deckQueryService;
   private final DeckRestQueryService deckRestQueryService;
@@ -54,4 +55,5 @@ public class DeckService {
         .then()
         .subscribe();
   }
+
 }

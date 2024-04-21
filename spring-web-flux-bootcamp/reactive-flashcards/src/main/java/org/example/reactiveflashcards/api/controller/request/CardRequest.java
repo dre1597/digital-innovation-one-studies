@@ -4,26 +4,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-public record UserRequest(
+public record CardRequest(
+    @JsonProperty("front")
     @NotBlank
     @Size(min = 1, max = 255)
-    @JsonProperty("name")
-    @Schema(description = "nome do usuário", example = "João")
-    String name,
+    @Schema(description = "pergunta do card", example = "blue")
+    String front,
+    @JsonProperty("back")
     @NotBlank
     @Size(min = 1, max = 255)
-    @Email
-    @JsonProperty("email")
-    @Schema(description = "email do usuário", example = "joao@joao.com.br")
-    String email
-) {
+    @Schema(description = "resposta do card", example = "azul")
+    String back) {
 
   @Builder(toBuilder = true)
-  public UserRequest {
+  public CardRequest {
   }
 
 }
