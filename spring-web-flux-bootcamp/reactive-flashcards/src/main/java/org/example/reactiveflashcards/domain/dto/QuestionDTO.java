@@ -1,18 +1,17 @@
-package org.example.reactiveflashcards.domain.document;
+package org.example.reactiveflashcards.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
-public record Question(
+public record QuestionDTO(
     String asked,
-    @Field("asked_in") OffsetDateTime askedIn,
+    OffsetDateTime askedIn,
     String answered,
-    @Field("answered_in") OffsetDateTime answeredIn,
+    OffsetDateTime answeredIn,
     String expected
 ) {
   public static QuestionBuilder builder() {
@@ -61,14 +60,12 @@ public record Question(
     }
 
     public QuestionBuilder expected(final String expected) {
-      if (StringUtils.isNotBlank(expected)) {
-        this.expected = expected;
-      }
+      this.expected = expected;
       return this;
     }
 
-    public Question build() {
-      return new Question(asked, askedIn, answered, answeredIn, expected);
+    public QuestionDTO build() {
+      return new QuestionDTO(asked, askedIn, answered, answeredIn, expected);
     }
   }
 }
