@@ -1,6 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using ModuleAPIMVC.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<AgendaContext>(
+    options =>
+        options.UseSqlite(builder.Configuration.GetConnectionString("Default"))
+);
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

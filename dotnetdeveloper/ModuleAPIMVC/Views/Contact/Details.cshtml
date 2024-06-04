@@ -1,0 +1,33 @@
+@model ModuleAPIMVC.Models.Contact
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.Name)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(x => x.Name)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.Phone)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(x => x.Phone)
+        </dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(x => x.IsActive)
+        </dt>
+        <dt class="col-sm-10">
+            @Html.DisplayFor(x => x.IsActive)
+        </dt>
+    </dl>
+</div>
+
+<a asp-action="Edit" asp-route-id="@Model.Id">Editar</a> |
+<a asp-action="Index">Voltar</a>
