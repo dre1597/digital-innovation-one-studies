@@ -1,0 +1,6 @@
+@UnitTestChallenge_HostAddress = http://localhost:5091
+
+GET {{UnitTestChallenge_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
