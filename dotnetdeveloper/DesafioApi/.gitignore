@@ -2,3 +2,5 @@
 bin
 obj
 Organizer.db
+Organizer.db-shm
+Organizer.db-wal
