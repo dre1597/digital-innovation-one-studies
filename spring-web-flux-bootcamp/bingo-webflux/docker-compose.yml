@@ -1,0 +1,7 @@
+services:
+  mongodb:
+    image: mongo:5
+    ports:
+      - "37017:27017"
+    volumes:
+      - ./data:/data/db

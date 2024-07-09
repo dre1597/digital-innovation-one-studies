@@ -1,0 +1,10 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: reactive-bingo
+  data:
+    mongodb:
+      uri: mongodb://localhost:37017
+      database: bingo-webflux
