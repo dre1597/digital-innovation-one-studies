@@ -1,0 +1,25 @@
+package org.example.bingowebflux.api.validation;
+
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ValueOfEnumImpl implements ConstraintValidator<ValueOfEnum, String> {
+  List<String> values;
+
+  @Override
+  public void initialize(ValueOfEnum constraint) {
+    this.values = Arrays.stream(constraint.enumClass().getEnumConstants())
+        .map(Enum::name)
+        .toList();
+
+  }
+
+  @Override
+  public boolean isValid(String value, ConstraintValidatorContext constraintValidatorContext) {
+    return this.values.stream().anyMatch(s -> s.equals(value));
+  }
+}
+
