@@ -86,7 +86,7 @@ public interface RoundAPI {
       String id
   );
 
-  @GetMapping(value = "/{id}/last-number", produces = APPLICATION_JSON_VALUE)
+  @GetMapping(value = "/{id}/last-numbers", produces = APPLICATION_JSON_VALUE)
   @ResponseStatus(OK)
   @Operation(
       summary = ROUND_GET_LAST_NUMBER_SUMMARY,
@@ -107,7 +107,7 @@ public interface RoundAPI {
   )
   Mono<RoundResponseDTO> create();
 
-  @PostMapping(value = "/{id}/generate-number", produces = APPLICATION_JSON_VALUE)
+  @PostMapping(value = "/{id}/generate-numbers", produces = APPLICATION_JSON_VALUE)
   @ResponseStatus(OK)
   @Operation(
       summary = ROUND_GENERATE_NUMBER_SUMMARY,
@@ -120,7 +120,7 @@ public interface RoundAPI {
       String id
   );
 
-  @PostMapping(value = "/{id}/generate-card/player/{playerId}", produces = APPLICATION_JSON_VALUE)
+  @PostMapping(value = "/{id}/generate-card/players/{playerId}", produces = APPLICATION_JSON_VALUE)
   @ResponseStatus(OK)
   @Operation(
       summary = ROUND_GENERATE_CARD_SUMMARY,
