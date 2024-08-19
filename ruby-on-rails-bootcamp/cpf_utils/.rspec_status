@@ -1,0 +1,5 @@
+example_id                    | status | run_time        |
+----------------------------- | ------ | --------------- |
+./spec/cpf_utils_spec.rb[1:1] | passed | 0.00104 seconds |
+./spec/cpf_utils_spec.rb[1:2] | passed | 0.00079 seconds |
+./spec/cpf_utils_spec.rb[1:3] | passed | 0.00021 seconds |
